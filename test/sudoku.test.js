@@ -3,16 +3,6 @@ const sudoku = require('../lib/sudoku');
 
 describe('sudoko', () => {
 
-  describe('helpers', () => {
-
-    it('should shuffle an array', () => {
-      const a = [1,2,3,4,5];
-      const b = sudoku.shuffle(a.slice());
-      expect(a).to.not.equal(b);
-    });
-
-  });
-
   describe('#solve', () => {
 
     it ('should have no empty spaces after solving', () => {
