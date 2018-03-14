@@ -10,7 +10,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sudoku/board', (req, res) => {
-  res.json(sudoku.generate());
+  let board = sudoku.generate();
+  board = sudoku.solve(board);
+  res.json(board);
 });
 
 app.listen(PORT, () => console.log(`running on ${PORT}`));
