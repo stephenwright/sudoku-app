@@ -1,5 +1,5 @@
 
-# Sudoku Single Page Application
+# Sudoku Service
 
-A NodeJS backend with a React front end for generating Sudoku puzzles.
+A NodeJS webservice for working with Sudoku puzzles.
 
