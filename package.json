@@ -9,7 +9,7 @@
     "test": "mocha test/*test.js",
     "lint": "eslint .",
     "build": "yarn lint && yarn test",
-    "start": "NODE_ENV=production node index.js"
+    "start": "NODE_ENV=production node src/index.js"
   },
   "dependencies": {
     "express": "^4.16.3"
