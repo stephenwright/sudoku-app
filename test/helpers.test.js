@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { shuffle } = require('../lib/helpers');
+const { shuffle } = require('../src/lib/helpers');
 
 describe('helpers', () => {
 

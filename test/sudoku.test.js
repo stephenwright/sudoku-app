@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const sudoku = require('../lib/sudoku');
+const sudoku = require('../src/lib/sudoku');
 
 describe('sudoko', () => {
 

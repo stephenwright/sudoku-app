@@ -2,15 +2,15 @@
   "name": "sudoku-service",
   "version": "1.0.0",
   "description": "sudoku web service",
-  "main": "index.js",
+  "author": "Stephen Wright",
+  "license": "ISC",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha test/*test.js",
     "lint": "eslint .",
     "build": "yarn lint && yarn test",
     "start": "NODE_ENV=production node index.js"
   },
-  "author": "Stephen Wright",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
   },

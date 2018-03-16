@@ -3,20 +3,36 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-const { app } = require('../lib/server');
+const server = require('../src/lib/server');
 
-describe('GET /sudoku/board', () => {
+describe('server', () => {
 
-  it('should respond in under 500ms', (done) => {
+  after(() => { server.close(); });
 
-    chai.request(app)
-      .get('/sudoku/board')
-      .end(function (err, res) {
-         expect(err).to.be.null;
-         expect(res).to.have.status(200);
-         done();
-      });
+  describe('GET /sudoku/board', () => {
+
+    it('should respond in under 500ms', () => {
+      const time = process.hrtime();
+      chai.request(server)
+        .get('/sudoku/board')
+        .end(function (err, res) {
+          expect(res).to.have.status(200);
+          const diff = process.hrtime(time);
+          const ms = diff[1] / 1e6;
+          expect(ms).to.be.below(500);
+        });
+    });
+
+    it('should respond with status 200', () => {
+      chai.request(server)
+        .get('/sudoku/board')
+        .end(function (err, res) {
+          expect(err).to.be.null;
+          expect(res).to.have.status(200);
+        });
+    });
 
   });
 
 });
+
