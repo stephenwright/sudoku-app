@@ -19,4 +19,18 @@ describe('sudoko', () => {
 
   });
 
+  describe('#getEmptyBoard', () => {
+
+    it ('should return a board with all cells set to 0', () => {
+      let board = sudoku.getEmptyBoard();
+      expect(board.length).to.equal(81);
+      let zeros = 0;
+      for (let i = 0; i < board.length; ++i){
+        if (board[i] == 0) ++zeros;
+      }
+      expect(zeros).to.equal(81);
+    });
+
+  });
+
 });
