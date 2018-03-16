@@ -17,7 +17,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sudoku/board', (req, res) => {
-  let board = sudoku.generate();
+  let {cell,value} = req.query
+  let board = null;
+  if (typeof cell !== 'undefined' && typeof value !== undefined) {
+    cell = parseInt(cell);
+    value = parseInt(value);
+    board = sudoku.getEmptyBoard();
+    board[cell] = value;
+  }
+  else {
+    board = sudoku.generate();
+  }
   board = sudoku.solve(board);
   res.json(board);
 });

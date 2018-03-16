@@ -12,7 +12,9 @@ describe('sudoko', () => {
     });
 
     it('should find the correct solution', () => {
-
+      let board = sudoku.generate();
+      board = sudoku.solve(board);
+      expect(sudoku.validate(board)).to.equal(true);
     });
 
   });

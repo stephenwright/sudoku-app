@@ -60,15 +60,17 @@ function draw(board) {  // eslint-disable-line no-unused-vars
   return s;
 }
 
-// -----
-
-function generate() {
+function getEmptyBoard() {
   const board = [];
-
   for (let i = 0; i < 81; ++i) {
     board[i] = 0;
   }
+  return board;
+}
+// -----
 
+function generate() {
+  const board = getEmptyBoard();
   // seed the top corner
   let mix = shuffle(DIGITS.slice());
   for (let x = 0; x < 3; ++x) {
@@ -76,7 +78,6 @@ function generate() {
       board[y+x] = mix.shift();
     }
   }
-
   return board;
 }
 
@@ -144,4 +145,5 @@ module.exports = {
   generate,
   validate,
   solve,
+  getEmptyBoard,
 };

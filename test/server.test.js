@@ -32,6 +32,17 @@ describe('server', () => {
         });
     });
 
+    it('allow specifying a seed value', () => {
+      chai.request(server)
+        .get('/sudoku/board?cell=0&value=7')
+        .end(function (err, res) {
+          expect(err).to.be.null;
+          expect(res).to.have.status(200);
+          const board = res.body;
+          expect(board[0]).to.equal(7);
+        });
+    });
+
   });
 
 });
